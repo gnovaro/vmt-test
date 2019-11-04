@@ -9,7 +9,7 @@ class Task extends Model
     protected $table = 'task';
 
     const PENDING = 0;
-    const RUNING = 1;
+    const RUNNING = 1;
     const COMPLETED = 2;
 
     public function getAll()
@@ -31,9 +31,9 @@ class Task extends Model
         return $this->getByCompleted(self::PENDING);
     }
 
-    public function getRuning()
+    public function getRunning()
     {
-        return $this->getByCompleted(self::RUNGING);
+        return $this->getByCompleted(self::RUNNING);
     }
 
 
@@ -46,7 +46,7 @@ class Task extends Model
      * @param array $data
      * @return bool
      */
-    public function storage(array $options)
+    public function store(array $data)
     {
         $status = false;
         if(isset($data['id']))
@@ -59,10 +59,25 @@ class Task extends Model
         $task->name = $data['name'];
         $task->due_date = $data['due_date'];
         $task->description = (isset($data['description'])) ? $data['description'] : $task->description;
-        $task->completed = $data['completed'];
+        $task->completed = (isset($data['completed'])) ? $data['completed'] : self::PENDING;
 
         $status = $task->save();
         return $status;
+    }
+
+    /**
+     * @return bool
+     */
+    public function run()
+    {
+        $this->completed = self::RUNNING;
+        return $this->save();
+    }
+
+    public function complete()
+    {
+        $this->completed = self::COMPLETED;
+        return $this->save();
     }
 
 }

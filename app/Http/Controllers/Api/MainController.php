@@ -18,6 +18,7 @@ class MainController extends Controller
             '/task/pending' => 'Get all pending task list',
             '/task/inprogress' => 'Get all in progress task list',
             '/task/completed' => 'Get all completed task list',
+            '/task/save' => 'Save post task'
         ];
 
         return response()->json($response);
