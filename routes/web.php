@@ -11,6 +11,13 @@
 |
 */
 
+Route::get('/task', 'TaskController@index', function (Request $request) {});
+
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
