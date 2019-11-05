@@ -4,6 +4,14 @@
 ```console
 mysql -u root -p -e "CREATE DATABASE vimet;"
 ```
+* Clonar el proyecto:
+```console
+git clone https://github.com/gnovaro/vmt-test
+```
+* Ejecutar composer
+```console
+composer update
+```
 * Dentro del dir del proyecto ejecutar:
 ```console
 php artisan migrate
