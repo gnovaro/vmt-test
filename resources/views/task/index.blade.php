@@ -1,13 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+<div>
+    <a href="/task/add" class="btn btn-primary">{{ __('New task') }}</a>
+</div>
 <table class="table">
 <thead>
 <tr>
-    <th>Name</th>
-    <th>Due date</th>
-    <th>Description</th>
-    <th>Completed</th>
+    <th>{{ __('Name') }}</th>
+    <th>{{ __('Due date') }}</th>
+    <th>{{ __('Description') }}</th>
+    <th>{{ __('Completed') }}</th>
 <tr>
 </thead>
 <tbody>
