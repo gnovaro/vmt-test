@@ -8,7 +8,7 @@ mysql -u root -p -e "CREATE DATABASE vmt;"
 
 * Clonar el proyecto:
 ```console
-git clone https://github.com/gnovaro/vmt-test
+git clone https://github.com/gnovaro/vmt-test.git
 ```
 
 * Ejecutar composer
