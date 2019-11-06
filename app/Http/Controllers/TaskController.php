@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Task;
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Client;
 
 class TaskController extends MainController
 {
@@ -32,8 +34,9 @@ class TaskController extends MainController
     {
         //call to the api
         $client = new Client();
-        $res = $client->request('POST', '/api/task', [
+        $res = $client->request('POST', url('/api/task'), [
             'form_params' => [
+                'id' => (!empty($request->id)) ? $request->id : null,
                 'name' => $request->name,
                 'due_date' => $request->due_date,
                 'description' => $request->description,

@@ -12,6 +12,9 @@
 */
 
 Route::get('/task', 'TaskController@index', function (Request $request) {});
+Route::get('/task/add', 'TaskController@add', function (Request $request) {});
+Route::get('/task/edit/{id}', 'TaskController@edit', function (Request $request,$id) {});
+Route::post('/task/save', 'TaskController@save', function (Request $request,$id) {});
 
 
 Route::get('/', function () {
