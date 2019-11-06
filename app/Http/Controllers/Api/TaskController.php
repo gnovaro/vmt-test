@@ -39,8 +39,6 @@ class TaskController extends MainController
         );
     }
 
-
-
     public function save(Request $request)
     {
         $task = new Task;

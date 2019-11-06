@@ -6,11 +6,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
-    protected $table = 'task';
-
     const PENDING = 0;
     const RUNNING = 1;
     const COMPLETED = 2;
+
+    protected $table = 'task';
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'due_date',
+    ];
 
     public function getAll()
     {

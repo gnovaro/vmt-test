@@ -1,10 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+
+@if (session('status'))
+    <div class="alert alert-success">
+        {{ session('message') }}
+    </div>
+@endif
+
 <div>
     <a href="/task/add" class="btn btn-primary">{{ __('New task') }}</a>
 </div>
-<table class="table">
+
+<table class="table table-bordered table-hover mt-1">
 <thead>
 <tr>
     <th>{{ __('Name') }}</th>
@@ -21,7 +29,7 @@
             {{ $task->name }}
         </a>
     </td>
-    <td>{{ $task->due_date }}</td>
+    <td>{{ $task->due_date->format('d/m/Y') }}</td>
     <td>{{ $task->description }}</td>
     <td>{{ $task->completed }}</td>
 </tr>
