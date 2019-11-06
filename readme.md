@@ -1,8 +1,8 @@
-# Vimet Test
+# Vmt Test
 ## Instalación
 * Crear base de datos:
 ```console
-mysql -u root -p -e "CREATE DATABASE vimet;"
+mysql -u root -p -e "CREATE DATABASE vmt;"
 ```
 * Clonar el proyecto:
 ```console

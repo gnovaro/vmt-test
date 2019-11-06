@@ -30,18 +30,27 @@ class TaskController extends MainController
         return view('task.task',$data);
     }
 
+    /**
+     * Save method
+     * @param Request $request
+     */
     public function save(Request $request)
     {
         //call to the api
-        $client = new Client();
-        $res = $client->request('POST', url('/api/task'), [
-            'form_params' => [
-                'id' => (!empty($request->id)) ? $request->id : null,
-                'name' => $request->name,
-                'due_date' => $request->due_date,
-                'description' => $request->description,
-            ]
-        ]);
+        try {
+            $client = new Client();
+            $res = $client->request('POST', url('/api/task'), [
+                'form_params' => [
+                    'id' => (!empty($request->id)) ? $request->id : null,
+                    'name' => $request->name,
+                    'due_date' => $request->due_date,
+                    'description' => $request->description,
+                ]
+            ]);
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+            die;
+        }
         //@todo check status heare
         return redirect('/task');
     }
