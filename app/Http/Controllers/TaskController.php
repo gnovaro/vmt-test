@@ -13,22 +13,22 @@ class TaskController extends MainController
         $data['tasks'] = $task->getAll();
         return view('task.index',$data);
     }
-    
+
     public function add()
     {
         $task = new Task;
         $data['task'] = $task;
         return view('task.task',$data);
     }
-    
+
     public function edit(Request $request, int $id)
     {
         $task = Task::find($id);
         $data['task'] = $task;
         return view('task.task',$data);
     }
-    
-    public save(Request $request)
+
+    public function save(Request $request)
     {
         //call to the api
         $client = new Client();
@@ -36,7 +36,7 @@ class TaskController extends MainController
             'form_params' => [
                 'name' => $request->name,
                 'due_date' => $request->due_date,
-                'description' => $request->description,                
+                'description' => $request->description,
             ]
         ]);
         //@todo check status heare
