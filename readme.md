@@ -16,6 +16,12 @@ composer update
 ```console
 php artisan migrate
 ```
+* Copiar archivo de configuración .env
+```console
+cp .env.example .env
+```
+* IMPORTANTE: Editar datos de conexión db en el .env
+
 * Levantar servidor de pruebas:
 ```console
 php artisan serve
