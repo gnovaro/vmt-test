@@ -18,5 +18,6 @@
     <div class="row">
         <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
     </div>
+    <input type="hidden" name="id" value="{{ $task->id }}">
 </form>
 @endsection
