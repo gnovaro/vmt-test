@@ -1,26 +1,35 @@
 # Vmt Test
 ## Instalación
+
 * Crear base de datos:
 ```console
 mysql -u root -p -e "CREATE DATABASE vmt;"
 ```
+
 * Clonar el proyecto:
 ```console
 git clone https://github.com/gnovaro/vmt-test
 ```
+
 * Ejecutar composer
 ```console
 composer update
 ```
-* Dentro del dir del proyecto ejecutar:
-```console
-php artisan migrate
-```
+
 * Copiar archivo de configuración .env
 ```console
 cp .env.example .env
 ```
-* IMPORTANTE: Editar datos de conexión db en el .env
+
+* **IMPORTANTE**: Editar datos de conexión db en el .env
+```console
+vim .env
+```
+
+* Dentro del dir del proyecto ejecutar migraciones:
+```console
+php artisan migrate
+```
 
 * Levantar servidor de pruebas:
 ```console
